@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: "publish environment"
 
     steps:
     - uses: actions/checkout@v2
@@ -39,8 +40,8 @@ jobs:
         mkdir "release/${{ github.sha }}"
         mv release/*.zip "release/${{ github.sha }}"
 
-    - name: Write the host key fingerprint to a file
-      run: echo "${{ secrets.PUBLISH_HOST_FINGERPRINT }}" > known_hosts
+    - name: Write the host public key to a file
+      run: echo "${{ secrets.PUBLISH_HOST_PUBLIC_KEY }}" > known_hosts
 
     - name: Upload files to cdn
       uses: marcodallasanta/ssh-scp-deploy@v1.2.0
