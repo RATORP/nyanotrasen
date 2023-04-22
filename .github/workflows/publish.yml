@@ -60,7 +60,7 @@ jobs:
         host: ${{ secrets.PUBLISH_HOST }}
         fingerprint: ${{ secrets.PUBLISH_HOST_FINGERPRINT }}
         username: ${{ secrets.PUBLISH_NOTIFY_USER }}
-        key: ${{ secrets.BUILDS_NOTIFY_KEY }}
+        key: ${{ secrets.PUBLISH_NOTIFY_KEY }}
         port: ${{ secrets.PUBLISH_PORT }}
         script: /home/${{ secrets.PUBLISH_PUSH_USER }}/push.s1 ${{ github.sha }}
 
